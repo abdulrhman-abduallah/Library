@@ -22,7 +22,7 @@ function addBookToLibrary() {
     let title = document.querySelector("#title").value;
     let author = document.querySelector("#author").value;
     let pages = document.querySelector("#pages").value;
-    let read = document.querySelector("#read").value;
+    let read = document.querySelector("#read").checked;
 
     let newBook = new Book(title,author,pages,read);
     myLibrary.push(newBook);
@@ -35,6 +35,7 @@ let newBookbtn = document.getElementById('new-book-btn');
 newBookbtn.addEventListener('click',function(){
     let newBookForm = document.querySelector("#new-book-form");
     newBookForm.style.display = "block";
+    newBookForm.reset();
 });
 
 document.querySelector("#new-book-form").addEventListener("submit",function(event){
@@ -64,7 +65,9 @@ function render(){
         </div>
         `;
         libraryEl.appendChild(bookEl);
+
     }
+
 }
 
 
